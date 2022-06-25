@@ -18,10 +18,13 @@ const Navbar = () => {
     //const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
 
     const navigate = useNavigate();
+
+    console.log(auth)
     
     useEffect(() => {
-        if(!user) {
-            navigate("/")
+        if(loading) return
+        if(user) {
+            navigate("/dashboard")
         }
       }, [user, loading]);
   
