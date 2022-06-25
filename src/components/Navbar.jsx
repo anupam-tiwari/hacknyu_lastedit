@@ -1,19 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import grabLogo from '../assets/grab-logo.svg'
-import BsFillBagFill, { BsBagFill } from 'react-icons/bs'
+import { signInWithGoogle, auth, logout } from '../firebase'
+import { getAuth, getRedirectResult, onAuthStateChanged } from 'firebase/auth'
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate} from "react-router-dom"
 
 const styles = {
     container: `flex item-center justify-between p-6 w-full  px-8`,
     logoContainer: `w-28 flex items-center`, 
     buttonCart: "text-[#009c49] pr-4 border-white"
-    
 }
 
-function text(){
-    console.log("lol")
-}
 
 const Navbar = () => {
+
+    const [user, loading, error] = useAuthState(auth);
+    //const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+
+    const navigate = useNavigate();
+    
+    useEffect(() => {
+        if(!user) {
+            navigate("/")
+        }
+      }, [user, loading]);
+  
   return (
 
     <div className={styles.container}>
@@ -21,8 +32,9 @@ const Navbar = () => {
             <img src={grabLogo}></img>
         </div>
         <div>
-            {/* <button className={styles.buttonCart}><BsBagFill></BsBagFill></button> */}
-            <button className="text-white bg-black w-30 px-6 py-2 rounded-xl" onClick={() => text()}>Login</button>
+            {!user && <button className="text-white bg-black w-30 px-6 py-2 rounded-xl" onClick={() => signInWithGoogle()}>Login</button>}
+            {user && <button className="text-white bg-black w-30 px-6 py-2 rounded-xl" onClick={logout}>Logout</button>}
+            
         </div>
     </div>
   )
