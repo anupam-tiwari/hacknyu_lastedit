@@ -1,5 +1,5 @@
 import {initializeApp} from "firebase/app"
-import {getAuth, GoogleAuthProvider, signInWithRedirect, signOut, getRedirectResult} from "firebase/auth"
+import {getAuth, GoogleAuthProvider, signInWithRedirect, signOut, getRedirectResult, signInWithPopup} from "firebase/auth"
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -18,7 +18,7 @@ const googleProvider = new GoogleAuthProvider();
 
 const signInWithGoogle = async () => {
     try{
-        const res = await signInWithRedirect(auth, googleProvider)
+        const res = await signInWithPopup(auth, googleProvider)
 
     }catch(err){
         console.log(err);

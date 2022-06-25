@@ -12,9 +12,7 @@ const Home = () => {
     const [user, loading, error] = useAuthState(auth);
 
     useEffect(() => {
-        if (loading) {
-          return;
-        }
+        if (loading) ;
         if (user) navigate("/dashboard");
       }, [user, loading]);
 
