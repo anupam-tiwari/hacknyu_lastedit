@@ -41,7 +41,7 @@ const SubmitMenu = () => {
       <div className='flex justify-center pt-10 text-4xl font-bold'>Paste JSON Menu</div>
       <div className='flex justify-center h-[50%] items-end pb-10'><textarea className='w-[60%] h-[80%] rounded-lg bg-gray-100 drop-shadow-md' placeholder='paste menu here' onChange={(e) => (setMenu(e.target.value))}></textarea></div>
         
-        <div className='flex  justify-center'><button className='bg-[#009c49] rounded-lg w-60 h-10' onClick={sendNotification}>Send Notification</button></div>
+      
         <div className='flex  justify-center'><button className='bg-[#009c49] rounded-lg w-60 h-10' onClick={submitMenu}>Submit</button></div>
 
     </div>
