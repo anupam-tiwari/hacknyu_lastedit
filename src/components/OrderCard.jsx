@@ -1,25 +1,32 @@
 import React from "react";
 import { TiTick, TiCancel } from "react-icons/ti";
 import { FaCcPaypal } from "react-icons/fa";
+import item1 from "../assets/item-1.jpeg";
+
 
 const OrderCard = (props) => {
   return (
+    console.log(props.orderData),
     <div className="flex bg-white border-black-100 border-2 rounded-2xl p-1 drop-shadow-md hover:drop-shadow-xl justify-around">
       <div className=" w-[80%] p-2">
-        <div>Items:</div>
-        <div className="flex justify-between">
-            <div>{props.img1}</div>
-            <div>{props.img2}</div>
-            <div>{props.img3}</div>
-        </div>
+        <div>Items: {props.orderData.orderID}</div>
+        <div>orderTime: {props.orderData.orderTime}</div>
+        <div>cutlery:{props.orderData.cutlery}</div>
+        <div>Order Accept Type: {props.orderData.featureFlags.orderAcceptedType}</div>
+        <div>Order Type: {props.orderData.featureFlags.orderType}</div>
+        <div>Items: {props.orderData.items[0].id}</div>
+        <div>Items: {props.orderData.items[0].quantity}</div>
+        
+        {/* <div className="flex justify-between">
+        </div> */}
         <div className="flex text-2xl pt-1">Campaigns:<div className="text-purple-500 font-bold pl-4">GrabSave</div></div>
       </div>
       <div className="w-[20%]">
           <div className="flex justify-center  pt-2">
-            <FaCcPaypal className="w-10 h-10"></FaCcPaypal>
+            {props.orderData.paymentType}
           </div>
           <div className="flex justify-center text-[#009c49] font-bold text-7xl p-4">
-            ${props.price}
+            ${(props.orderData.price.eaterPayment/100)}
           </div>
           <div className="flex justify-center pt-4 pb-2">
             <div className="px-2">

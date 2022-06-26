@@ -4,9 +4,10 @@ import Home from "./pages/Home";
 import Navbar from './components/Navbar'
 import Dashboard from "./pages/Dashboard";
 import Loading from "./pages/Loading";
-import EditMenu from "./components/EditMenu";
+import SubmitMenu from "./components/SubmitMenu";
 import Orders from "./components/Orders";
 import Promos from "./components/Promos";
+import EditMenu from "./components/EditMenu";
 
 const menu = require('./data/menu.json')
 
@@ -23,6 +24,7 @@ const App = () => {
         <Route path='/menu' element={<EditMenu></EditMenu>}></Route>
         <Route path='/orders' element={<Orders></Orders>}></Route>
         <Route path='/promos' element={<Promos></Promos>}></Route>
+        <Route path='/editmenu' element={<SubmitMenu></SubmitMenu>}></Route>
       </Routes>
    </>
   )

@@ -5,8 +5,21 @@ import Summary from "./Summary";
 import item1 from "../assets/item-1.jpeg";
 import item2 from "../assets/item-2.png";
 import item3 from "../assets/item-3.png";
+import axios from 'axios'
+import { useState, useEffect } from "react";
 
 const Orders = () => {
+  const [orders, setOrders] = useState([]); 
+  const fetchURL= "https://grab-pos-server.herokuapp.com/pos/getorders"
+
+  useEffect(() => {
+    axios.get(fetchURL).then((response) => {
+        setOrders(response.data)
+    })
+  }, [])
+
+  console.log(orders)
+
   return (
     <div className="h-full">
       <Navbar></Navbar>
@@ -17,20 +30,7 @@ const Orders = () => {
           <div>
             <div className="text-l py-4"> List of orders</div>
             <div>
-              <OrderCard
-                img1={<img className="w-70" src={item1}></img>}
-                img2={<img src={item3}></img>}
-                img3={<img src={item1}></img>}
-                price={24}
-              ></OrderCard>
-            </div>
-            <div className="pt-7">
-              <OrderCard
-                img1={<img className="w-70" src={item3}></img>}
-                img2={<img src={item1}></img>}
-                img3={<img src={item3}></img>}
-                price={55}
-              ></OrderCard>
+              {orders.map((items) => (<OrderCard  orderData={JSON.parse(items.data)}></OrderCard>))}
             </div>
           </div>
         </div>

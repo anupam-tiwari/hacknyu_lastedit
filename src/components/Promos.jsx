@@ -1,5 +1,8 @@
 import React from 'react'
 import Navbar from './Navbar'
+import axios from 'axios'
+
+
 
 const Promos = () => {
   return (

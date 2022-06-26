@@ -36,8 +36,7 @@ const Navbar = () => {
         </div>
         {user && <div className='flex items-center'>
             <div  className='px-4 cursor-pointer hover:text-[#009c49]' onClick={() => (navigate('/orders'))}>Orders</div>
-            <div className='px-4 cursor-pointer hover:text-[#009c49]' onClick={() => navigate('/menu')}>Edit Menu</div>
-            <div className='px-4 cursor-pointer hover:text-[#009c49]'  onClick={() => navigate('/promos')}>Promos</div>
+            <div className='px-4 cursor-pointer hover:text-[#009c49]' onClick={() => navigate('/menu')}>Menu</div>
         </div>}
         <div className='flex items-center'>
             {user && <div className='pr-4'>{user.displayName}</div>}
