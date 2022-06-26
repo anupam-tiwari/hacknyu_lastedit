@@ -9,8 +9,8 @@ const Main = () => {
             <img className='w-full h-full object-cover' src={bgimg}></img>
 
             <div className='absolute w-80 top-[30%] left-[5%] md:left-[20%] p-4 md:p-8 bg-white rounded'>
-                <h2 className='text-1xl text-black'>Good Morning</h2>
-                <h1 className='text-3xl md:text-5xl font-bold text-black'>Let's explore good food near you.</h1>
+                <h2 className='text-1xl text-black'>Thank you for making a difference</h2>
+                <h1 className='text-3xl md:text-5xl font-bold text-black'>Grab for Good with food!</h1>
                  <div className='my-4'>
                      <button className='border bg-[#009c49] text-white border-gray-300 py-2 px-5 rounded-lg w-full' onClick={() => (console.log("wowo"))}>Search</button>
                  </div>

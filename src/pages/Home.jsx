@@ -13,7 +13,7 @@ const Home = () => {
 
     useEffect(() => {
         if (loading) ;
-        if (user) navigate("/dashboard");
+        if (user); //navigate("/dashboard");
       }, [user, loading]);
 
   return (

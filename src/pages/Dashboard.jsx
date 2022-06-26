@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { useNavigate } from 'react-router-dom'
+import { Outlet, Route, Routes, useNavigate } from 'react-router-dom'
+import FoodGrid from '../components/FoodGrid'
 import Navbar from '../components/Navbar'
 import { auth } from '../firebase'
 
@@ -16,7 +17,9 @@ const Dashboard = () => {
 
   return (
     
-    <div><Navbar></Navbar></div>
+    <div>
+        <Navbar></Navbar>
+    </div>
   )
 }
 

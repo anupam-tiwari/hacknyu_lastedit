@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
-import grabLogo from '../assets/grab-logo.svg'
+import grabLogo from '../assets/grabsave-new.png'
 import { signInWithGoogle, auth, logout } from '../firebase'
 import { getAuth, getRedirectResult, onAuthStateChanged } from 'firebase/auth'
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useNavigate} from "react-router-dom"
+import { Link, useNavigate} from "react-router-dom"
 
 const styles = {
     container: `flex item-center justify-between p-6 w-full  px-8`,
@@ -23,8 +23,8 @@ const Navbar = () => {
     
     useEffect(() => {
         if(loading) return
-        if(user) {
-            navigate("/dashboard")
+        if(!user) {
+            navigate("/")
         }
       }, [user, loading]);
   
@@ -34,10 +34,15 @@ const Navbar = () => {
         <div  className={styles.logoContainer}>
             <img src={grabLogo}></img>
         </div>
-        <div>
+        {user && <div className='flex items-center'>
+            <div  className='px-4 cursor-pointer hover:text-[#009c49]' onClick={() => (navigate('/orders'))}>Orders</div>
+            <div className='px-4 cursor-pointer hover:text-[#009c49]' onClick={() => navigate('/menu')}>Edit Menu</div>
+            <div className='px-4 cursor-pointer hover:text-[#009c49]'  onClick={() => navigate('/promos')}>Promos</div>
+        </div>}
+        <div className='flex items-center'>
+            {user && <div className='pr-4'>{user.displayName}</div>}
             {!user && <button className="text-white bg-black w-30 px-6 py-2 rounded-xl" onClick={() => signInWithGoogle()}>Login</button>}
             {user && <button className="text-white bg-black w-30 px-6 py-2 rounded-xl" onClick={logout}>Logout</button>}
-            
         </div>
     </div>
   )
