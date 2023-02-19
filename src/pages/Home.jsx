@@ -28,7 +28,7 @@ const Home = () => {
             <h1 className="text-3xl font-bold">There's something for everyone!</h1>
           </div>
           <div>
-            <img src={foodItems}></img>
+            {/* <img src={foodItems}></img> */}
           </div>
         </div>
       </div>

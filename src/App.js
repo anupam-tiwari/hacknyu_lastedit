@@ -5,7 +5,8 @@ import Navbar from './components/Navbar'
 import Dashboard from "./pages/Dashboard";
 import Loading from "./pages/Loading";
 import SubmitMenu from "./components/SubmitMenu";
-import Orders from "./components/Orders";
+// import Orders from "./components/Orders";
+import Around from "./components/Around";
 import Promos from "./components/Promos";
 import EditMenu from "./components/EditMenu";
 
@@ -22,7 +23,7 @@ const App = () => {
         <Route path='/dashboard' element={<Dashboard></Dashboard>}></Route>
         <Route path='/loading' element={<Loading></Loading>}></Route>
         <Route path='/menu' element={<EditMenu></EditMenu>}></Route>
-        <Route path='/orders' element={<Orders></Orders>}></Route>
+        <Route path='/around' element={<Around></Around>}></Route>
         <Route path='/promos' element={<Promos></Promos>}></Route>
         <Route path='/editmenu' element={<SubmitMenu></SubmitMenu>}></Route>
       </Routes>

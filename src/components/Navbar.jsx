@@ -32,11 +32,11 @@ const Navbar = () => {
 
     <div className={styles.container}>
         <div  className={styles.logoContainer}>
-            <img src={grabLogo}></img>
+            <div  onClick={() => (navigate('/'))}>Blender</div>
         </div>
         {user && <div className='flex items-center'>
-            <div  className='px-4 cursor-pointer hover:text-[#009c49]' onClick={() => (navigate('/orders'))}>Orders</div>
-            <div className='px-4 cursor-pointer hover:text-[#009c49]' onClick={() => navigate('/menu')}>Menu</div>
+            <div  className='px-4 cursor-pointer hover:text-[#009c49]' onClick={() => (navigate('/around'))}>Aound Me!</div>
+            {/* <div className='px-4 cursor-pointer hover:text-[#009c49]' onClick={() => navigate('/menu')}>Menu</div> */}
         </div>}
         <div className='flex items-center'>
             {user && <div className='pr-4'>{user.displayName}</div>}
